@@ -1,48 +1,72 @@
 package com.sparta;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class TreeSort implements SorterI {
 
-Node node;
+
     @Override
     public int[] sortArray(int[] arrayToSort) {
+        ArrayList<Integer> nums = new ArrayList<Integer>();
+
         btree start = new btree();
         for(int i = 0; i < arrayToSort.length; i++)
         {
-           start.add(new Node(),arrayToSort[i]);
-           start.inorderRec(n);
+           start.add(arrayToSort[i]);
         }
-        return;
+        return arrayToSort;
     }
 
 
 class btree{
-       void add(Node start, int data){
-            if (start.data > data){
-                if (start.left == null){
-                    start.left = new Node(data);
-                }
-                else {
-                    add(start.left, data);
-                }
-            }
-            else if(start.data < data){
-                if (start.right == null){
-                    start.right = new Node(data);
-                }
-                else {
-                    add(start.right,data);
-                }
-            }
-        }
+    Node root;
+       void add(int data) {
+           Node start = new Node(data);
+           if (root == null) {
+               root = start;
+           } else {
+               Node focusNode = root;
+               Node parent;
+               while (true) {
+                   parent = focusNode;
+                   if (data < focusNode.data) {
+                       focusNode = focusNode.left;
+                       if (focusNode == null) {
+                           parent.left = start;
+                           return;
+                       }
 
-    void inorderRec(Node root)
+                   } else {
+                       focusNode = focusNode.right;
+                       if (focusNode == null) {
+                           parent.right = start;
+                           return;
+                       }
+                   }
+               }
+
+           }
+       }
+
+    public int[] inorderRec(Node root,ArrayList<Integer> num)
     {
+
+
         if (root != null)
         {
-            inorderRec(root.left);
-            System.out.print(root.data + " ");
-            inorderRec(root.right);
+            inorderRec(root.left,num);
+            //for (int i=0;i<9;i++) {
+                num.add(root.data);
+
+           // }
+           // System.out.print(root.data);
+            inorderRec(root.right,num);
         }
+
+ int[] sorted = num.stream().mapToInt(i -> i).toArray();
+
+        return sorted;
     }
     }
 

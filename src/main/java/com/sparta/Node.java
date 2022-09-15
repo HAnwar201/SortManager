@@ -6,8 +6,8 @@ public class Node {
     Node right;
     Node(int data){
         this.data = data;
-       left = null;
-        right = null;
+       this.left = null;
+        this.right = null;
     }
 
 }

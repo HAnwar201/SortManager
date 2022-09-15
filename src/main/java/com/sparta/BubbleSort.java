@@ -15,13 +15,7 @@ public class BubbleSort implements SorterI{
                     arrayToSort[j] = arrayToSort[j + 1];
                     arrayToSort[j + 1] = temp;
                 }
-
-
-        System.out.println(Arrays.toString(arrayToSort));
         return arrayToSort;
-
-
-
 
     }
 }
