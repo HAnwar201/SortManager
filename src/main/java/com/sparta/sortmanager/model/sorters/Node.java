@@ -1,4 +1,4 @@
-package com.sparta;
+package com.sparta.sortmanager.model.sorters;
 
 public class Node {
     int data;

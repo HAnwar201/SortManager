@@ -1,6 +1,6 @@
-package com.sparta;
+package com.sparta.sortmanager.main;
 
-import java.util.Arrays;
+import com.sparta.sortmanager.view.DisplayManager;
 
 public class Starter {
 
@@ -8,7 +8,7 @@ public class Starter {
     public void start(){
         DisplayManager display = new DisplayManager();
         display.displayStart();
-
+//
 //        int[] og = {25,3,3,5,9,4,7,230,35,12};
 //        BubbleSort sort = new BubbleSort();
 //
@@ -16,7 +16,7 @@ public class Starter {
 //        MergeSort merge = new MergeSort();
 //        System.out.println(Arrays.toString(merge.sortArray(og)));
 //        TreeSort tree = new TreeSort();
-//        tree.sortArray(og);
+//        System.out.println(Arrays.toString(tree.sortArray(og)));
 
     }
 

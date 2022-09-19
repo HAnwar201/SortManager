@@ -1,12 +1,19 @@
-package com.sparta;
+package com.sparta.sortmanager.model.sorters;
 
-import java.util.Arrays;
+import com.sparta.sortmanager.main.SorterI;
+import com.sparta.sortmanager.main.Starter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class MergeSort implements SorterI {
+
     @Override
     public int[] sortArray(int[] arrayToSort) {
+
+
         int inputLength = arrayToSort.length;
         if (inputLength < 2) {
+            ;
             return arrayToSort;
         }
         int midIndex = inputLength / 2;
@@ -30,17 +37,17 @@ public class MergeSort implements SorterI {
         return arrayToSort;
     }
 
-    private void merge(int[] arrayToSort, int[] leftHalf, int[] righHalf) {
+    private void merge(int[] arrayToSort, int[] leftHalf, int[] rightHalf) {
         int leftSize = leftHalf.length;
-        int rightSize = righHalf.length;
+        int rightSize = rightHalf.length;
 
         int i = 0, j = 0, k = 0;
         while (i < leftSize && j < rightSize) {
-            if (leftHalf[i] <= righHalf[j]) {
+            if (leftHalf[i] <= rightHalf[j]) {
                 arrayToSort[k] = leftHalf[i];
                 i++;
             } else {
-                arrayToSort[k] = righHalf[j];
+                arrayToSort[k] = rightHalf[j];
                 j++;
             }
             k++;
@@ -51,7 +58,7 @@ public class MergeSort implements SorterI {
             k++;
         }
         while (j < rightSize) {
-            arrayToSort[k] = righHalf[j];
+            arrayToSort[k] = rightHalf[j];
             j++;
             k++;
 
